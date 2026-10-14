@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Wesley, desenvolvedor de sistemas, automações e aplicações web.">
+    <meta name="author" content="Wesley">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#080b14">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Wesley | Desenvolvedor de Sistemas e Automações">
+    <meta property="og:description" content="Projetos reais em sistemas, automações, dados e aplicações web.">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary">
+    <title>Wesley | Desenvolvedor de Sistemas e Automações</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"Person",
+      "name":"Wesley",
+      "jobTitle":"Desenvolvedor de sistemas e automações",
+      "email":"mailto:andersonwesley09@email.com",
+      "address":{"@type":"PostalAddress","addressRegion":"PB","addressCountry":"BR"}
+    }
+    </script>
+</head>
+<body>
+<header class="header" id="header">
+    <nav class="navbar container" aria-label="Navegação principal">
+        <a href="#home" class="logo" aria-label="Ir para o início">WA<span>Dev.</span></a>
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="#home" class="nav-link active">Início</a></li>
+            <li><a href="#sobre" class="nav-link">Sobre</a></li>
+            <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+            <li><a href="projetos.html" class="nav-link">Projetos</a></li>
+            <li><a href="#experiencia" class="nav-link">Experiência</a></li>
+            <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+        <div class="header-actions">
+            <button class="theme-button" id="theme-button" aria-label="Ativar tema claro" aria-pressed="false"><i class="fa-solid fa-moon"></i></button>
+            <button class="menu-button" id="menu-button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </nav>
+</header>
+
+<main>
+<section class="home section" id="home">
+    <div class="home-container container">
+        <div class="home-content reveal">
+            <span class="home-badge"><span class="status-dot"></span>Disponível para novos projetos</span>
+            <p class="home-greeting">Olá, eu sou</p>
+            <h1 class="home-title">Wesley</h1>
+            <h2 class="home-subtitle">Desenvolvo <span id="typing"></span><span class="cursor" aria-hidden="true">|</span></h2>
+            <p class="home-description">Desenvolvedor de sistemas e automações, com foco em transformar processos manuais em soluções digitais mais simples, organizadas e eficientes.</p>
+            <div class="home-buttons">
+                <a href="projetos.html" class="btn btn-primary">Ver projetos <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#contato" class="btn btn-outline">Entrar em contato</a>
+            </div>
+            <div class="home-social" aria-label="Canais de contato">
+                <a href="mailto:andersonwesley09@email.com" aria-label="Enviar e-mail"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#contato" aria-label="Ir para contato"><i class="fa-solid fa-paper-plane"></i></a>
+            </div>
+        </div>
+
+        <div class="home-visual reveal" aria-label="Áreas de atuação">
+            <div class="profile-card">
+                <div class="profile-glow"></div>
+                <div class="profile-image"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
+                <div class="floating-card card-code"><i class="fa-solid fa-code"></i><div><strong>Sistemas</strong><span>Web & aplicações</span></div></div>
+                <div class="floating-card card-database"><i class="fa-solid fa-database"></i><div><strong>Dados</strong><span>SQL & PostgreSQL</span></div></div>
+                <div class="floating-card card-automation"><i class="fa-solid fa-gears"></i><div><strong>Automação</strong><span>Python</span></div></div>
+                <div class="floating-card card-api"><i class="fa-solid fa-plug"></i><div><strong>Integrações</strong><span>APIs & processos</span></div></div>
+            </div>
+        </div>
+    </div>
+    <a href="#sobre" class="scroll-down" aria-label="Rolar para a seção Sobre"><span>Scroll</span><i class="fa-solid fa-arrow-down"></i></a>
+</section>
+
+<section class="about section" id="sobre">
+    <div class="container">
+        <div class="section-heading reveal"><span class="section-tag">Sobre mim</span><h2>Transformando problemas em <span>soluções digitais.</span></h2></div>
+        <div class="about-grid">
+            <div class="about-content reveal">
+                <h3>Desenvolvedor de sistemas, aplicações e automações.</h3>
+                <p>Sou estudante de Análise e Desenvolvimento de Sistemas (ADS) e venho construindo experiência prática no desenvolvimento de soluções para problemas reais.</p>
+                <p>Trabalho com Python, JavaScript, Node.js, Java, PHP, SQL e PostgreSQL, criando sistemas web, aplicações, automações, dashboards e ferramentas para tratamento de dados.</p>
+                <p>Gosto de investigar processos, entender a causa dos problemas e transformar tarefas repetitivas em fluxos mais organizados, confiáveis e fáceis de usar.</p>
+                <a href="#contato" class="btn btn-primary">Vamos conversar <i class="fa-solid fa-message"></i></a>
+            </div>
+            <div class="about-info reveal">
+                <div class="info-card"><span class="info-number">4+</span><span class="info-text">Projetos reais<br>apresentados</span></div>
+                <div class="info-card"><span class="info-number">8+</span><span class="info-text">Tecnologias<br>utilizadas</span></div>
+                <div class="info-card"><span class="info-number">3</span><span class="info-text">Áreas principais<br>sistemas, dados e automação</span></div>
+                <div class="info-card"><span class="info-number"><i class="fa-solid fa-arrow-trend-up"></i></span><span class="info-text">Foco em<br>melhoria contínua</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="skills section" id="habilidades">
+    <div class="container">
+        <div class="section-heading reveal"><span class="section-tag">Como trabalho</span><h2>Ferramentas para criar <span>soluções úteis.</span></h2><p>Minha stack combina desenvolvimento, banco de dados e automação para resolver problemas de ponta a ponta.</p></div>
+        <div class="skills-grid">
+            <article class="skill-card reveal"><div class="skill-icon"><i class="fa-brands fa-python"></i></div><h3>Python</h3><p>Automação, aplicações desktop, processamento de arquivos e tratamento de dados.</p></article>
+            <article class="skill-card reveal"><div class="skill-icon"><i class="fa-brands fa-js"></i></div><h3>JavaScript</h3><p>Interfaces interativas, lógica de aplicações e experiências web responsivas.</p></article>
+            <article class="skill-card reveal"><div class="skill-icon"><i class="fa-brands fa-node-js"></i></div><h3>Node.js</h3><p>APIs, back-end, autenticação e integração com bancos de dados.</p></article>
+            <article class="skill-card reveal"><div class="skill-icon"><i class="fa-brands fa-java"></i></div><h3>Java</h3><p>Programação orientada a objetos e construção de aplicações estruturadas.</p></article>
+            <article class="skill-card reveal"><div class="skill-icon"><i class="fa-brands fa-php"></i></div><h3>PHP</h3><p>Desenvolvimento web e integração de sistemas dinâmicos com dados.</p></article>
+            <article class="skill-card reveal"><div class="skill-icon"><i class="fa-solid fa-database"></i></div><h3>SQL / PostgreSQL</h3><p>Modelagem, consultas, relacionamentos e persistência de dados.</p></article>
+            <article class="skill-card reveal"><div class="skill-icon"><i class="fa-brands fa-html5"></i></div><h3>HTML5</h3><p>Estrutura semântica, acessível e organizada para aplicações web.</p></article>
+            <article class="skill-card reveal"><div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div><h3>CSS3</h3><p>Interfaces responsivas, componentes, estados e acabamento visual.</p></article>
+        </div>
+    </div>
+</section>
+
+<section class="experience section" id="experiencia">
+    <div class="container">
+        <div class="section-heading reveal"><span class="section-tag">Experiência prática</span><h2>Construindo soluções <span>na prática.</span></h2><p>Uma trajetória baseada em projetos, investigação de problemas e desenvolvimento contínuo.</p></div>
+        <div class="timeline">
+            <div class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">Atual</span><h3>Desenvolvimento de sistemas e automações</h3><h4>Projetos internos e soluções digitais</h4><p>Criação e evolução de sistemas de controle, aplicações, automações, dashboards, relatórios e integrações para processos reais.</p></div></div>
+            <div class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">Experiência prática</span><h3>Dados, processos e aplicações web</h3><h4>JavaScript • Node.js • Python • SQL • PostgreSQL</h4><p>Desenvolvimento de ferramentas para organizar informações, reduzir tarefas manuais e facilitar o acompanhamento operacional.</p></div></div>
+            <div class="timeline-item reveal"><div class="timeline-dot"></div><div class="timeline-content"><span class="timeline-date">Formação</span><h3>Análise e Desenvolvimento de Sistemas</h3><h4>Tecnólogo em formação</h4><p>Construção de conhecimentos em programação, banco de dados, algoritmos, engenharia de software e desenvolvimento de sistemas.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="contact section" id="contato">
+    <div class="container">
+        <div class="contact-container reveal">
+            <div class="contact-content"><span class="section-tag">Contato</span><h2>Vamos transformar uma ideia em solução.</h2><p>Se você tem um projeto, processo que pode ser automatizado ou precisa de uma aplicação, entre em contato.</p><div class="contact-list"><a href="mailto:andersonwesley09@email.com" class="contact-item"><div class="contact-icon"><i class="fa-solid fa-envelope"></i></div><div><span>E-mail</span><strong>andersonwesley09@email.com</strong></div></a><div class="contact-item"><div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div><div><span>Localização</span><strong>Paraíba, Brasil</strong></div></div></div></div>
+            <form class="contact-form" id="contact-form" novalidate><div class="form-group"><label for="name">Nome</label><input type="text" id="name" autocomplete="name" placeholder="Seu nome" required></div><div class="form-group"><label for="email">E-mail</label><input type="email" id="email" autocomplete="email" placeholder="seuemail@email.com" required></div><div class="form-group"><label for="subject">Assunto</label><input type="text" id="subject" placeholder="Sobre o que deseja conversar?" required></div><div class="form-group"><label for="message">Mensagem</label><textarea id="message" rows="6" placeholder="Escreva sua mensagem..." required></textarea></div><button type="submit" class="btn btn-primary form-button">Preparar e-mail <i class="fa-solid fa-paper-plane"></i></button><p class="form-help">Ao enviar, seu aplicativo de e-mail será aberto com a mensagem preenchida.</p><p class="form-message" id="form-message" role="status" aria-live="polite"></p></form>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer class="footer"><div class="container footer-container"><a href="#home" class="logo">WA<span>Dev.</span></a><p>© <span id="year"></span> Wesley. Portfólio pessoal.</p><div class="footer-social"><a href="mailto:andersonwesley09@email.com" aria-label="Enviar e-mail"><i class="fa-solid fa-envelope"></i></a></div></div></footer>
+
+<button class="scroll-top" id="scroll-top" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="script.js"></script>
+</body>
+</html>
