@@ -58,3 +58,36 @@ if (contactForm) {
     window.open(gmailUrl, '_blank');
   });
 }
+
+const prepareEmailButton = document.getElementById('prepare-email');
+
+if (prepareEmailButton) {
+    prepareEmailButton.addEventListener('click', () => {
+
+        const nome = document.getElementById('nome')?.value.trim() || '';
+        const email = document.getElementById('email')?.value.trim() || '';
+        const assunto = document.getElementById('assunto')?.value.trim() || '';
+        const mensagem = document.getElementById('mensagem')?.value.trim() || '';
+
+        if (!nome || !email || !assunto || !mensagem) {
+            alert('Preencha todos os campos antes de continuar.');
+            return;
+        }
+
+        const corpo = 
+`Nome: ${nome}
+
+E-mail: ${email}
+
+Mensagem:
+${mensagem}`;
+
+        const gmailUrl =
+            'https://mail.google.com/mail/?view=cm&fs=1' +
+            '&to=' + encodeURIComponent('andersonwesley09@gmail.com') +
+            '&su=' + encodeURIComponent(assunto) +
+            '&body=' + encodeURIComponent(corpo);
+
+        window.open(gmailUrl, '_blank');
+    });
+}
