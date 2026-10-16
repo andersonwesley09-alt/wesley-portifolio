@@ -20,6 +20,9 @@
         "Node.js",
         "PostgreSQL"
       ],
+      "image": "assets/controle-avarias.png",
+      "image_alt": "Tela do sistema Controle de Avarias",
+      "link": "https://andersonwesley09-alt.github.io/controle-de-avarias-web/login.html",
       "preview_html": "<div class=\"mock-dashboard project-preview-dashboard\"><div class=\"mock-sidebar\"></div><div class=\"mock-main\"><div class=\"mock-title\"></div><div class=\"mock-cards\"><span></span><span></span><span></span></div><div class=\"mock-chart\"></div></div></div>",
       "published": true
     },
