@@ -32,3 +32,29 @@ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entr
 contactForm.addEventListener('submit',event=>{event.preventDefault();const name=document.getElementById('name').value.trim();const email=document.getElementById('email').value.trim();const subject=document.getElementById('subject').value.trim();const message=document.getElementById('message').value.trim();if(!name||!email||!subject||!message||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){formMessage.className='form-message error';formMessage.textContent='Preencha nome, e-mail válido, assunto e mensagem.';return}formMessage.className='form-message sending';formMessage.textContent='Preparando seu aplicativo de e-mail...';const body=`Olá, Wesley!\n\nNome: ${name}\nE-mail: ${email}\n\n${message}`;const mailto=`mailto:andersonwesley09@email.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;window.setTimeout(()=>{window.location.href=mailto;formMessage.className='form-message success';formMessage.textContent='Se o aplicativo de e-mail não abrir, envie a mensagem diretamente para o endereço informado.'},180)});
 
 document.getElementById('year').textContent=new Date().getFullYear();handleScroll();
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const assunto = document.getElementById('assunto').value.trim();
+    const mensagem = document.getElementById('mensagem').value.trim();
+
+    const destinatario = 'andersonwesley09@email.com';
+
+    const corpo =
+      `Nome: ${nome}\n` +
+      `E-mail: ${email}\n\n` +
+      `Mensagem:\n${mensagem}`;
+
+    const gmailUrl =
+      `https://mail.google.com/mail/?view=cm&fs=1` +
+      `&to=${encodeURIComponent(destinatario)}` +
+      `&su=${encodeURIComponent(assunto)}` +
+      `&body=${encodeURIComponent(corpo)}`;
+
+    window.open(gmailUrl, '_blank');
+  });
+}
