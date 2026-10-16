@@ -46,51 +46,6 @@
       "image": "assets/controle-trocas.png",
       "image_alt": "Tela do sistema Controle de Trocas",
       "published": true
-    },
-    {
-      "slug": "plataforma-de-gestao",
-      "kicker": "Sistemas internos",
-      "type": "Plataforma",
-      "title": "Plataforma de Gestão",
-      "description": "Plataforma modular para operações internas, reunindo estoque, almoxarifado, pedidos, RH, dashboards e relatórios.",
-      "details": "Plataforma modular para concentrar diferentes processos operacionais em um único ambiente, com dados persistidos e geração de relatórios.",
-      "points": [
-        "Módulos de estoque e almoxarifado",
-        "Pedidos e processos internos",
-        "Recursos para RH",
-        "Dashboards e indicadores",
-        "Relatórios em PDF e Excel"
-      ],
-      "tech": [
-        "Node.js",
-        "PostgreSQL",
-        "JavaScript",
-        "PDF",
-        "Excel"
-      ],
-      "preview_html": "<div class=\"project-placeholder\"><i class=\"fa-solid fa-layer-group\"></i></div>",
-      "published": true
-    },
-    {
-      "slug": "automacao-de-pdfs",
-      "kicker": "Processamento de documentos",
-      "type": "Automação",
-      "title": "Automação de PDFs",
-      "description": "Automação para separar documentos de grandes PDFs, identificar funcionários e gerar arquivos individuais organizados.",
-      "details": "Automação para processar PDFs extensos, identificar documentos e gerar arquivos individuais padronizados.",
-      "points": [
-        "Processamento de PDFs extensos",
-        "Identificação por nome/CPF quando disponível",
-        "Geração de arquivos individuais",
-        "Padronização dos nomes dos arquivos"
-      ],
-      "tech": [
-        "Python",
-        "PyPDF2 / pdfplumber",
-        "PDF"
-      ],
-      "preview_html": "<div class=\"project-placeholder\"><i class=\"fa-solid fa-file-pdf\"></i></div>",
-      "published": true
     }
   ]
 }
