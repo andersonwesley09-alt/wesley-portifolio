@@ -42,7 +42,7 @@ if (contactForm) {
     const assunto = document.getElementById('assunto').value.trim();
     const mensagem = document.getElementById('mensagem').value.trim();
 
-    const destinatario = 'andersonwesley09@email.com';
+    const destinatario = 'andersonwesley09@gmail.com';
 
     const corpo =
       `Nome: ${nome}\n` +
