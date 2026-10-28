@@ -11,7 +11,9 @@
     <meta property="og:title" content="Wesley | Desenvolvedor de Sistemas e Automações">
     <meta property="og:description" content="Projetos reais em sistemas, automações, dados e aplicações web.">
     <meta property="og:locale" content="pt_BR">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="assets/social-preview.png">
+<meta name="twitter:image" content="assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
     <title>Wesley | Desenvolvedor de Sistemas e Automações</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,12 +28,13 @@
       "@type":"Person",
       "name":"Wesley",
       "jobTitle":"Desenvolvedor de sistemas e automações",
-      "email":"mailto:andersonwesley09@gmail.com",
+      "email":"mailto:andersonwesley09@email.com",
       "address":{"@type":"PostalAddress","addressRegion":"PB","addressCountry":"BR"}
     }
     </script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Pular para o conteúdo</a>
 <header class="header" id="header">
     <nav class="navbar container" aria-label="Navegação principal">
         <a href="#home" class="logo" aria-label="Ir para o início">WA<span>Dev.</span></a>
@@ -40,6 +43,7 @@
             <li><a href="#sobre" class="nav-link">Sobre</a></li>
             <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
             <li><a href="projetos.html" class="nav-link">Projetos</a></li>
+            <li><a href="curriculo.html" class="nav-link">Currículo</a></li>
             <li><a href="#experiencia" class="nav-link">Experiência</a></li>
             <li><a href="#contato" class="nav-link">Contato</a></li>
         </ul>
@@ -50,7 +54,7 @@
     </nav>
 </header>
 
-<main>
+<main id="main-content">
 <section class="home section" id="home">
     <div class="home-container container">
         <div class="home-content reveal">
@@ -61,10 +65,11 @@
             <p class="home-description">Desenvolvedor de sistemas e automações, com foco em transformar processos manuais em soluções digitais mais simples, organizadas e eficientes.</p>
             <div class="home-buttons">
                 <a href="projetos.html" class="btn btn-primary">Ver projetos <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="curriculo.html" class="btn btn-outline"><i class="fa-solid fa-file-lines"></i> Meu currículo</a>
                 <a href="#contato" class="btn btn-outline">Entrar em contato</a>
             </div>
             <div class="home-social" aria-label="Canais de contato">
-                <a href="mailto:andersonwesley09@gmail.com" aria-label="Enviar e-mail"><i class="fa-solid fa-envelope"></i></a>
+                <a href="mailto:andersonwesley09@email.com" aria-label="Enviar e-mail"><i class="fa-solid fa-envelope"></i></a>
                 <a href="#contato" aria-label="Ir para contato"><i class="fa-solid fa-paper-plane"></i></a>
             </div>
         </div>
@@ -95,7 +100,7 @@
                 <a href="#contato" class="btn btn-primary">Vamos conversar <i class="fa-solid fa-message"></i></a>
             </div>
             <div class="about-info reveal">
-                <div class="info-card"><span class="info-number">4+</span><span class="info-text">Projetos reais<br>apresentados</span></div>
+                <div class="info-card"><span class="info-number">2</span><span class="info-text">Projetos reais<br>apresentados</span></div>
                 <div class="info-card"><span class="info-number">8+</span><span class="info-text">Tecnologias<br>utilizadas</span></div>
                 <div class="info-card"><span class="info-number">3</span><span class="info-text">Áreas principais<br>sistemas, dados e automação</span></div>
                 <div class="info-card"><span class="info-number"><i class="fa-solid fa-arrow-trend-up"></i></span><span class="info-text">Foco em<br>melhoria contínua</span></div>
@@ -131,17 +136,19 @@
     </div>
 </section>
 
+<section class="section v5-promo"><div class="container"><div class="section-heading"><span class="section-tag">Portfólio · V5</span><h2>Projetos que resolvem <span>problemas reais.</span></h2><p>Conheça o Controle de Avarias e o Controle de Trocas, com detalhes técnicos, funcionalidades e imagens.</p><a class="btn btn-primary" href="projetos.html">Explorar projetos <i class="fa-solid fa-arrow-right"></i></a></div></div></section>
+<section class="section resume-teaser" id="curriculo"><div class="container resume-teaser-grid"><div><span class="section-tag">Currículo</span><h2>Conheça minha <span>trajetória profissional.</span></h2><p>Formação, conhecimentos técnicos e projetos desenvolvidos reunidos em uma página própria, com opção de impressão ou exportação em PDF.</p><a href="curriculo.html" class="btn btn-primary"><i class="fa-solid fa-file-lines"></i> Ver meu currículo</a></div><div class="resume-teaser-icon" aria-hidden="true"><i class="fa-solid fa-address-card"></i></div></div></section>
 <section class="contact section" id="contato">
     <div class="container">
         <div class="contact-container reveal">
-            <div class="contact-content"><span class="section-tag">Contato</span><h2>Vamos transformar uma ideia em solução.</h2><p>Se você tem um projeto, processo que pode ser automatizado ou precisa de uma aplicação, entre em contato.</p><div class="contact-list"><a href="mailto:andersonwesley09@gmail.com" class="contact-item"><div class="contact-icon"><i class="fa-solid fa-envelope"></i></div><div><span>E-mail</span><strong>andersonwesley09@gmail.com</strong></div></a><div class="contact-item"><div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div><div><span>Localização</span><strong>Paraíba, Brasil</strong></div></div></div></div>
-            <form class="contact-form" id="contact-form" novalidate><div class="form-group"><label for="name">Nome</label><input type="text" id="name" autocomplete="name" placeholder="Seu nome" required></div><div class="form-group"><label for="email">E-mail</label><input type="email" id="email" autocomplete="email" placeholder="seuemail@email.com" required></div><div class="form-group"><label for="subject">Assunto</label><input type="text" id="subject" placeholder="Sobre o que deseja conversar?" required></div><div class="form-group"><label for="message">Mensagem</label><textarea id="message" rows="6" placeholder="Escreva sua mensagem..." required></textarea></div><button type="submit" class="btn btn-primary form-button" id="prepare-email">Preparar e-mail ✈<i class="fa-solid fa-paper-plane"></i></button><p class="form-help">Ao enviar, seu aplicativo de e-mail será aberto com a mensagem preenchida.</p><p class="form-message" id="form-message" role="status" aria-live="polite"></p></form>
+            <div class="contact-content"><span class="section-tag">Contato</span><h2>Vamos transformar uma ideia em solução.</h2><p>Se você tem um projeto, processo que pode ser automatizado ou precisa de uma aplicação, entre em contato.</p><div class="contact-list"><a href="mailto:andersonwesley09@email.com" class="contact-item"><div class="contact-icon"><i class="fa-solid fa-envelope"></i></div><div><span>E-mail</span><strong>andersonwesley09@email.com</strong></div></a><div class="contact-item"><div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div><div><span>Localização</span><strong>Paraíba, Brasil</strong></div></div></div></div>
+            <form class="contact-form" id="contact-form" novalidate><div class="form-group"><label for="name">Nome</label><input type="text" id="name" autocomplete="name" placeholder="Seu nome" required></div><div class="form-group"><label for="email">E-mail</label><input type="email" id="email" autocomplete="email" placeholder="seuemail@email.com" required></div><div class="form-group"><label for="subject">Assunto</label><input type="text" id="subject" placeholder="Sobre o que deseja conversar?" required></div><div class="form-group"><label for="message">Mensagem</label><textarea id="message" rows="6" placeholder="Escreva sua mensagem..." required></textarea></div><button type="submit" class="btn btn-primary form-button">Preparar e-mail <i class="fa-solid fa-paper-plane"></i></button><p class="form-help">Ao enviar, seu aplicativo de e-mail será aberto com a mensagem preenchida.</p><p class="form-message" id="form-message" role="status" aria-live="polite"></p></form>
         </div>
     </div>
 </section>
 </main>
 
-<footer class="footer"><div class="container footer-container"><a href="#home" class="logo">WA<span>Dev.</span></a><p>© <span id="year"></span> Wesley. Portfólio pessoal.</p><div class="footer-social"><a href="mailto:andersonwesley09@gmail.com" aria-label="Enviar e-mail"><i class="fa-solid fa-envelope"></i></a></div></div></footer>
+<footer class="footer"><div class="container footer-container"><a href="#home" class="logo">WA<span>Dev.</span></a><p>© <span id="year"></span> Wesley. Portfólio pessoal.</p><div class="footer-social"><a href="mailto:andersonwesley09@email.com" aria-label="Enviar e-mail"><i class="fa-solid fa-envelope"></i></a></div></div></footer>
 
 <button class="scroll-top" id="scroll-top" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
 

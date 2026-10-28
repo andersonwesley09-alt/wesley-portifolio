@@ -18,38 +18,44 @@ scrollTopButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:'sm
 function updateTheme(){const light=document.body.classList.contains('light-theme');themeButton.querySelector('i').className=light?'fa-solid fa-sun':'fa-solid fa-moon';themeButton.setAttribute('aria-pressed',String(light));themeButton.setAttribute('aria-label',light?'Ativar tema escuro':'Ativar tema claro');}
 const savedTheme=localStorage.getItem('portfolio-theme');if(savedTheme)document.body.classList.toggle('light-theme',savedTheme==='light');else if(window.matchMedia?.('(prefers-color-scheme: light)').matches)document.body.classList.add('light-theme');updateTheme();themeButton.addEventListener('click',()=>{const light=document.body.classList.toggle('light-theme');localStorage.setItem('portfolio-theme',light?'light':'dark');updateTheme()});
 
-const LOCAL_PROJECTS = [{"slug":"controle-de-avarias","kicker":"Projeto em destaque","type":"Sistema Web","title":"Controle de Avarias","description":"Sistema para registrar e acompanhar avarias, baixas e devoluções, com autenticação, módulos operacionais, dashboards e histórico.","details":"Sistema desenvolvido para organizar o fluxo de avarias e transformar registros operacionais em informações mais fáceis de acompanhar.","points":["Login e controle de acesso","Gestão de avarias e operações","Dashboards, tarefas e auditoria","Persistência em PostgreSQL"],"tech":["HTML","CSS","JavaScript","Node.js","PostgreSQL"],"preview_html":"<div class=\"mock-dashboard project-preview-dashboard\"><div class=\"mock-sidebar\"></div><div class=\"mock-main\"><div class=\"mock-title\"></div><div class=\"mock-cards\"><span></span><span></span><span></span></div><div class=\"mock-chart\"></div></div></div>","published":true},{"slug":"controle-de-trocas","kicker":"Operação","type":"Aplicação desktop","title":"Controle de Trocas","description":"Aplicação para registrar trocas, fornecedores e produtos, com importação de Excel, histórico, comprovantes e backup automático.","details":"Aplicação criada para registrar trocas com rapidez e rastreabilidade, relacionando fornecedores e produtos e gerando documentação da operação.","points":["Cadastro e busca de fornecedores","Produtos vinculados ao fornecedor","Importação de planilhas Excel","Histórico e comprovantes","Backup automático do banco"],"tech":["Python","SQLite","Excel","PDF"],"image":"assets/controle-trocas.png","image_alt":"Tela do sistema Controle de Trocas","published":true},{"slug":"plataforma-de-gestao","kicker":"Sistemas internos","type":"Plataforma","title":"Plataforma de Gestão","description":"Plataforma modular para operações internas, reunindo estoque, almoxarifado, pedidos, RH, dashboards e relatórios.","details":"Plataforma modular para concentrar diferentes processos operacionais em um único ambiente, com dados persistidos e geração de relatórios.","points":["Módulos de estoque e almoxarifado","Pedidos e processos internos","Recursos para RH","Dashboards e indicadores","Relatórios em PDF e Excel"],"tech":["Node.js","PostgreSQL","JavaScript","PDF","Excel"],"preview_html":"<div class=\"project-placeholder\"><i class=\"fa-solid fa-layer-group\"></i></div>","published":true},{"slug":"automacao-de-pdfs","kicker":"Processamento de documentos","type":"Automação","title":"Automação de PDFs","description":"Automação para separar documentos de grandes PDFs, identificar funcionários e gerar arquivos individuais organizados.","details":"Automação para processar PDFs extensos, identificar documentos e gerar arquivos individuais padronizados.","points":["Processamento de PDFs extensos","Identificação por nome/CPF quando disponível","Geração de arquivos individuais","Padronização dos nomes dos arquivos"],"tech":["Python","PyPDF2 / pdfplumber","PDF"],"preview_html":"<div class=\"project-placeholder\"><i class=\"fa-solid fa-file-pdf\"></i></div>","published":true}];
 
-function esc(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','\"':'&quot;'}[c]))}
-
-function projectCard(p,i){const image=p.image?`<img src="${esc(p.image)}" alt="${esc(p.image_alt||p.title)}" loading="lazy">`:p.preview_html||`<div class="project-placeholder"><i class="fa-solid fa-code"></i></div>`;const tech=(p.tech||[]).map(t=>`<span>${esc(t)}</span>`).join('');const link=p.link?`<a class="icon-button" href="${esc(p.link)}" target="_blank" rel="noopener" aria-label="Abrir projeto ${esc(p.title)}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`:`<button class="icon-button project-detail-btn" type="button" data-index="${i}" aria-label="Ver detalhes de ${esc(p.title)}"><i class="fa-solid fa-arrow-right"></i></button>`;return `<article class="project-card reveal"><div class="project-image">${image}<span class="project-type">${esc(p.type||'Projeto')}</span></div><div class="project-content"><div class="project-header"><div><span class="project-kicker">${esc(p.kicker||'Projeto')}</span><h2>${esc(p.title)}</h2></div>${link}</div><p>${esc(p.description)}</p><div class="project-tech">${tech}</div></div></article>`}
-
-async function loadProjects(){
-  let data;
-  try {
-    // No GitHub Pages/servidor HTTP, o JSON é a fonte oficial e pode ser alterado pelo painel administrativo.
-    // Ao abrir projetos.html diretamente como arquivo local (file://), o navegador pode bloquear fetch().
-    // Nesse caso usamos uma cópia embutida para a página continuar funcionando normalmente.
-    if (window.location.protocol === 'file:') throw new Error('file-protocol-fallback');
-    const res = await fetch('data/projects.json',{cache:'no-store'});
-    if (!res.ok) throw new Error('HTTP '+res.status);
-    data = await res.json();
-  } catch (err) {
-    data = {projects: LOCAL_PROJECTS};
-  }
-
-  const projects=(Array.isArray(data.projects)?data.projects:[]).filter(project=>project.published!==false);
-  grid.innerHTML=projects.map(projectCard).join('');
-  status.textContent=projects.length?`${projects.length} projetos`:'Nenhum projeto publicado ainda.';
-  status.classList.remove('error');
-
-  const obs=new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
-  }),{threshold:.08});
-  grid.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
-  grid.querySelectorAll('.project-detail-btn').forEach(btn=>btn.addEventListener('click',()=>openModal(projects[Number(btn.dataset.index)])));
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const validURL = (url, image=false) => {
+  if (typeof url !== 'string' || !url.trim() || /[\\\u0000-\u001f]/.test(url)) return '';
+  const s=url.trim();
+  if (image && /^(?:assets\/)[a-z0-9_./-]+\.(?:png|jpg|jpeg|webp|gif|svg)$/i.test(s) && !s.split('/').includes('..')) return s;
+  try { const u=new URL(s,location.href); return ['https:','http:'].includes(u.protocol) && (/^https?:\/\//i.test(s)) ? u.href : ''; }catch {return '';}
+};
+const slugOK = s => typeof s === 'string' && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(s);
+const cleanProject = x => {
+  if (!x || typeof x !== 'object' || !slugOK(x.slug) || typeof x.title !== 'string' || !x.title.trim()) return null;
+  return {...x, title:x.title.slice(0,120), points:Array.isArray(x.points)?x.points.filter(v=>typeof v==='string').slice(0,30):[], tech:Array.isArray(x.tech)?x.tech.filter(v=>typeof v==='string').slice(0,25):[], gallery:Array.isArray(x.gallery)?x.gallery.filter(v=>v&&validURL(v.image,true)).slice(0,12):[], image:validURL(x.image,true), link:validURL(x.link), published:x.published!==false};
+};
+const placeholder = '<div class="project-placeholder" aria-hidden="true"><i class="fa-solid fa-code"></i></div>';
+let allProjects=[];
+const search=document.getElementById('project-search'), filter=document.getElementById('project-filter'), featured=document.getElementById('featured-only');
+const projectUrl = p => `projeto.html?slug=${encodeURIComponent(p.slug)}`;
+function projectCard(p){
+  const visual=p.image?`<img src="${esc(p.image)}" alt="${esc(p.image_alt||p.title)}" loading="lazy">`:placeholder;
+  return `<article class="project-card reveal visible"><a class="project-image" href="${esc(projectUrl(p))}" aria-label="Ver detalhes de ${esc(p.title)}">${visual}<span class="project-type">${esc(p.type||'Projeto')}</span></a><div class="project-content"><div class="project-header"><div><span class="project-kicker">${p.featured?'<i class="fa-solid fa-star"></i> Destaque · ':''}${esc(p.kicker||'Projeto')}</span><h2><a href="${esc(projectUrl(p))}">${esc(p.title)}</a></h2></div><a class="icon-button" href="${esc(projectUrl(p))}" aria-label="Detalhes de ${esc(p.title)}"><i class="fa-solid fa-arrow-right"></i></a></div><p>${esc(p.description)}</p><div class="project-tech">${p.tech.map(t=>`<span>${esc(t)}</span>`).join('')}</div></div></article>`;
 }
-
-function openModal(p){const modal=document.createElement('div');modal.className='modal open';modal.setAttribute('aria-hidden','false');modal.innerHTML=`<div class="modal-backdrop"></div><div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="dynamic-modal-title"><button class="modal-close" type="button" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button><span class="section-tag">${esc(p.kicker||'Projeto')}</span><h2 id="dynamic-modal-title">${esc(p.title)}</h2><p>${esc(p.details||p.description||'')}</p><div class="modal-columns"><div><h3>O que foi feito</h3><ul>${(p.points||[]).map(x=>`<li><i class="fa-solid fa-check"></i>${esc(x)}</li>`).join('')}</ul></div><div><h3>Tecnologias</h3><div class="project-tech">${(p.tech||[]).map(x=>`<span>${esc(x)}</span>`).join('')}</div></div></div></div>`;document.body.appendChild(modal);document.body.classList.add('modal-open');const close=()=>{modal.remove();document.body.classList.remove('modal-open')};modal.querySelector('.modal-close').focus();modal.querySelector('.modal-close').addEventListener('click',close);modal.querySelector('.modal-backdrop').addEventListener('click',close);document.addEventListener('keydown',function onKey(e){if(e.key==='Escape'){close();document.removeEventListener('keydown',onKey)}})}
-
+function render(){
+ const q=(search?.value||'').trim().toLocaleLowerCase('pt-BR');const type=filter?.value||'';
+ const filtered=allProjects.filter(p=>(!type||(p.type||'Projeto')===type)&&(!featured?.checked||p.featured)&&(!q||[p.title,p.description,p.type,p.kicker,...p.tech].join(' ').toLocaleLowerCase('pt-BR').includes(q)));
+ grid.innerHTML=filtered.map(projectCard).join('');
+ status.textContent=`${filtered.length} projeto${filtered.length===1?'':'s'} encontrado${filtered.length===1?'':'s'}.`;
+ if(!filtered.length) grid.innerHTML='<div class="projects-empty">Nenhum resultado. Experimente outro termo ou filtro.</div>';
+}
+async function loadProjects(){
+ try {
+   if(location.protocol==='file:') throw new Error('Abra o projeto por um servidor HTTP local.');
+   const res=await fetch('data/projects.json',{cache:'no-store'});if(!res.ok)throw new Error(`HTTP ${res.status}`);
+   const data=await res.json();if(!Array.isArray(data.projects))throw new Error('Formato JSON inválido.');
+   const seen=new Set();allProjects=data.projects.map(cleanProject).filter(p=>{if(!p||!p.published||seen.has(p.slug))return false;seen.add(p.slug);return true}).sort((a,b)=>Number(b.featured)-Number(a.featured));
+   const types=[...new Set(allProjects.map(p=>p.type||'Projeto'))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+   if(filter)filter.innerHTML='<option value="">Todas as categorias</option>'+types.map(t=>`<option value="${esc(t)}">${esc(t)}</option>`).join('');
+   render();
+ }catch(err){grid.innerHTML='';status.classList.add('error');status.textContent='Não foi possível carregar os projetos. Verifique data/projects.json e execute o site em um servidor HTTP.';console.error('Falha ao carregar projetos:',err)}
+}
+search?.addEventListener('input',render);filter?.addEventListener('change',render);featured?.addEventListener('change',render);
 document.getElementById('year').textContent=new Date().getFullYear();handleScroll();loadProjects();

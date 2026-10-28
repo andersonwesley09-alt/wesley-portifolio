@@ -25,69 +25,10 @@ const savedTheme=localStorage.getItem('portfolio-theme');if(savedTheme)document.
 
 const words=['sistemas.','automações.','aplicações web.','soluções digitais.','APIs.','integrações.'];let wordIndex=0,charIndex=0,deleting=false,typingTimer;
 function typeText(){const word=words[wordIndex];typingElement.textContent=deleting?word.slice(0,charIndex-1):word.slice(0,charIndex+1);charIndex+=deleting?-1:1;if(!deleting&&charIndex===word.length){deleting=true;typingTimer=setTimeout(typeText,1600);return}if(deleting&&charIndex===0){deleting=false;wordIndex=(wordIndex+1)%words.length}typingTimer=setTimeout(typeText,deleting?45:80)}
-typeText();
+if(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches){typingElement.textContent=words[0]}else typeText();
 
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.1});revealElements.forEach(el=>observer.observe(el));
 
-contactForm.addEventListener('submit',event=>{event.preventDefault();const name=document.getElementById('name').value.trim();const email=document.getElementById('email').value.trim();const subject=document.getElementById('subject').value.trim();const message=document.getElementById('message').value.trim();if(!name||!email||!subject||!message||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){formMessage.className='form-message error';formMessage.textContent='Preencha nome, e-mail válido, assunto e mensagem.';return}formMessage.className='form-message sending';formMessage.textContent='Preparando seu aplicativo de e-mail...';const body=`Olá, Wesley!\n\nNome: ${name}\nE-mail: ${email}\n\n${message}`;const mailto=`mailto:andersonwesley09@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;window.setTimeout(()=>{window.location.href=mailto;formMessage.className='form-message success';formMessage.textContent='Se o aplicativo de e-mail não abrir, envie a mensagem diretamente para o endereço informado.'},180)});
+contactForm.addEventListener('submit',event=>{event.preventDefault();const name=document.getElementById('name').value.trim();const email=document.getElementById('email').value.trim();const subject=document.getElementById('subject').value.trim();const message=document.getElementById('message').value.trim();if(!name||!email||!subject||!message||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){formMessage.className='form-message error';formMessage.textContent='Preencha nome, e-mail válido, assunto e mensagem.';return}formMessage.className='form-message sending';formMessage.textContent='Preparando seu aplicativo de e-mail...';const body=`Olá, Wesley!\n\nNome: ${name}\nE-mail: ${email}\n\n${message}`;const mailto=`mailto:andersonwesley09@email.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;window.setTimeout(()=>{window.location.href=mailto;formMessage.className='form-message success';formMessage.textContent='Rascunho preparado. Confirme o envio no aplicativo de e-mail; o site não envia mensagens automaticamente.'},180)});
 
 document.getElementById('year').textContent=new Date().getFullYear();handleScroll();
-
-if (contactForm) {
-  contactForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const nome = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const assunto = document.getElementById('assunto').value.trim();
-    const mensagem = document.getElementById('mensagem').value.trim();
-
-    const destinatario = 'andersonwesley09@gmail.com';
-
-    const corpo =
-      `Nome: ${nome}\n` +
-      `E-mail: ${email}\n\n` +
-      `Mensagem:\n${mensagem}`;
-
-    const gmailUrl =
-      `https://mail.google.com/mail/?view=cm&fs=1` +
-      `&to=${encodeURIComponent(destinatario)}` +
-      `&su=${encodeURIComponent(assunto)}` +
-      `&body=${encodeURIComponent(corpo)}`;
-
-    window.open(gmailUrl, '_blank');
-  });
-}
-
-const prepareEmailButton = document.getElementById('prepare-email');
-
-if (prepareEmailButton) {
-    prepareEmailButton.addEventListener('click', () => {
-
-        const nome = document.getElementById('nome')?.value.trim() || '';
-        const email = document.getElementById('email')?.value.trim() || '';
-        const assunto = document.getElementById('assunto')?.value.trim() || '';
-        const mensagem = document.getElementById('mensagem')?.value.trim() || '';
-
-        if (!nome || !email || !assunto || !mensagem) {
-            alert('Preencha todos os campos antes de continuar.');
-            return;
-        }
-
-        const corpo = 
-`Nome: ${nome}
-
-E-mail: ${email}
-
-Mensagem:
-${mensagem}`;
-
-        const gmailUrl =
-            'https://mail.google.com/mail/?view=cm&fs=1' +
-            '&to=' + encodeURIComponent('andersonwesley09@gmail.com') +
-            '&su=' + encodeURIComponent(assunto) +
-            '&body=' + encodeURIComponent(corpo);
-
-        window.open(gmailUrl, '_blank');
-    });
-}

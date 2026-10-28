@@ -50,7 +50,7 @@ Agora:
 - abre o cliente de e-mail do visitante via `mailto:` com destinatário, assunto e corpo preenchidos;
 - informa claramente o que acontecerá.
 
-O e-mail utilizado é o que já constava no projeto: `andersonwesley09@gmail.com`.
+O e-mail utilizado é o que já constava no projeto: `andersonwesley09@email.com`.
 
 ### Por quê
 No V2, a mensagem “Mensagem preenchida com sucesso!” não significava que a mensagem tinha sido enviada. Isso era um problema funcional e de confiança.
