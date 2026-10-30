@@ -23,7 +23,8 @@
       "preview_html": "<div class=\"mock-dashboard project-preview-dashboard\"><div class=\"mock-sidebar\"></div><div class=\"mock-main\"><div class=\"mock-title\"></div><div class=\"mock-cards\"><span></span><span></span><span></span></div><div class=\"mock-chart\"></div></div></div>",
       "published": true,
       "featured": true,
-      "gallery": []
+      "gallery": [],
+      "link": "https://andersonwesley09-alt.github.io/controle-de-avarias-web/"
     },
     {
       "slug": "controle-de-trocas",
@@ -45,14 +46,26 @@
         "Excel",
         "PDF"
       ],
-      "image": "assets/controle-trocas.png",
-      "image_alt": "Tela do sistema Controle de Trocas",
+      "image": "assets/controle-trocas-principal.webp",
+      "image_alt": "Tela principal: cadastro e itens da troca",
       "published": true,
       "featured": false,
       "gallery": [
         {
-          "image": "assets/controle-trocas.png",
-          "alt": "Tela do sistema Controle de Trocas"
+          "image": "assets/controle-trocas-principal.webp",
+          "alt": "Tela principal: cadastro e itens da troca"
+        },
+        {
+          "image": "assets/controle-trocas-dashboard.webp",
+          "alt": "Dashboard: indicadores e desempenho das trocas"
+        },
+        {
+          "image": "assets/controle-trocas-historico.webp",
+          "alt": "Histórico: filtros, consulta e exportação"
+        },
+        {
+          "image": "assets/controle-trocas-administracao.webp",
+          "alt": "Administração: manutenção e segurança"
         }
       ]
     }
